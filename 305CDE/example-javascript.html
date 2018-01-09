@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      // only run this code once the page has finished loading
+      //   ensures that the HTML DOM is fully loaded before we start trying to edit it
+      window.onload = function()
+      {
+        // the id attribute is a good way to select an individual set of tags
+        document.getElementById("demo").innerHTML += "Hello JavaScript!";
+        document.getElementById("url").innerHTML += window.location.pathname;
+
+        let debug = document.getElementById("debug");
+
+        // selecting elements by tag is fairly unusual but can be done
+        debug.innerHTML += document.getElementsByTagName("div").length;     
+      }
+      
+      function doStuff()
+      {
+        // class names is a good way of selecting multiple tags
+        //   tags can belong to multiple classes
+        let tags = document.getElementsByClassName("wibble");
+        for( let i=0; i<tags.length; ++i )
+        {
+          tags[i].innerHTML += " wibble";
+        }     
+      }
+    </script>
+
+    <noscript>
+      Your browser does not support JavaScript!
+      This message is only displayed if the browser can't run javascript.
+    </noscript>
+  </head>
+
+  <body>
+    <div id="demo", class="wibble">Demo: </div>
+    <div id="url" class="wibble otherclass">URL: </div>
+    <div id="debug">Debug: </div>
+    
+    <input id="clickMe" type="button" value="Click This" onclick="doStuff();" />
+  </body>
+</html>
