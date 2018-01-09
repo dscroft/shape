@@ -12,7 +12,13 @@
         let debug = document.getElementById("debug");
 
         // selecting elements by tag is fairly unusual but can be done
-        debug.innerHTML += document.getElementsByTagName("div").length;     
+        debug.innerHTML += document.getElementsByTagName("div").length;
+
+        // attach javascript function to HTML button
+        //   could also have been done like this
+        //   <input id="clickMe" type="button" value="Click This" onclick="doStuff();" />
+        //   but this way keeps the HTML and the javascript separate
+        document.getElementById("clickMe").onclick = doStuff;
       }
       
       function doStuff()
@@ -38,6 +44,6 @@
     <div id="url" class="wibble otherclass">URL: </div>
     <div id="debug">Debug: </div>
     
-    <input id="clickMe" type="button" value="Click This" onclick="doStuff();" />
+    <input id="clickMe" type="button" value="Click This" />
   </body>
 </html>
